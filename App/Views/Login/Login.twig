@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+</head>
+<body style="background-color: #23c12b">
+
+<h1 style="font-size: 60px; text-align: center;">Login</h1>
+
+<div class="form"
+     style="background-color: blueviolet; padding: 20px; width: 300px; margin-right: auto; margin-left: auto">
+
+    <form action="/logincheck" method="post">
+        <input type="text" name="username" placeholder="username" value=""><br><br>
+        <input type="password" name="password" placeholder="password" value=""><br><br><br>
+        <input type="submit" name="action" value="Login"><br><br><br>
+        <input type="hidden" name="{{ previuspage }}" value="{{ previuspage }}">
+    </form>
+
+    <a href="/createuser" style="color: white">Don't have a user?, Create a new user</a>
+
+</div>
+
+</body>
+</html>

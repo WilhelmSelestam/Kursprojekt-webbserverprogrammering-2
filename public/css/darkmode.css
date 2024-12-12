@@ -1,0 +1,36 @@
+body {
+    color: white;
+    background-color: #000000;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: #cbe5e5;
+}
+
+.form {
+    background-color: #992323;
+}
+
+.discs {
+    background-color: #000000;
+}
+
+.box {
+    border-color: #c0da54;
+}
+
+.hej {
+    border-color: #2edccd;
+}
+
+p {
+     color: white;
+ }
+
+li {
+    color: white;
+}

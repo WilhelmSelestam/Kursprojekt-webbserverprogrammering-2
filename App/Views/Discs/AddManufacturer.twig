@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Manufacturer</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+</head>
+<body>
+
+<h1 >Add a new Manufacturer</h1>
+
+<div class="form" >
+    <form action="/storemanufacturer" method="post" enctype="multipart/form-data">
+        <label for="ManufacturerName">Manufacturername</label><br>
+        <input type="text" name="ManufacturerName" value="" placeholder="Manufacturer Name"><br><br>
+        <label for="ManufacturerDescription">Manufacturerdescription</label><br>
+        <input type="text" name=" ManufacturerDescription" value="" placeholder="Discdescription"><br><br>
+        <label for="ManufacturerCountry">Manufacturercountry</label><br>
+        <input type="text" name=" ManufacturerCountry" value="" placeholder="Country"><br><br>
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+</html>

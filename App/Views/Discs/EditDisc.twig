@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+    <title>Edit Disc</title>
+</head>
+<body>
+
+<h1>Edit the {{ thedisc }}</h1>
+
+<div class="form">
+
+    <form action="/updatedisc" method="post">
+        <input type="text" name="discName" value="{{ disc.DiscName }}"><br><br>
+        <input type="text" name="discDescription" value="{{ disc.DiscDescription }}"><br><br>
+        <input type="text" name="speed" value="{{ disc.Speed }}"><br><br>
+        <input type="text" name="glide" value="{{ disc.Glide }}"><br><br>
+        <input type="text" name="turn" value="{{ disc.Turn }}"><br><br>
+        <input type="text" name="fade" value="{{ disc.Fade }}"><br><br>
+        <input type="text" name="price" value="{{ disc.Price }}"><br><br>
+        <input type="hidden" name="thediscId" value="{{ disc.DiscId }}">
+
+        <select name="discType">
+            {% for type in types %}
+                <option value="{{ type.TypeId }}">{{ type.DiscTypes }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="manufacturer">
+            {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.ManufacturerId }}">{{ manufacturer.ManufacturerName }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="plastic">
+            {% for plastic in plastics %}
+                <option value="{{ plastic.PlasticId }}">{{ plastic.PlasticName }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="beginnerfriendly">
+            <option value="true">the disc is beginnerfriendly</option>
+            <option value="false">the disc is not beginnerfriendly</option>
+        </select>
+        <br><br>
+        <br><br>
+        <input type="submit" value="Edit disc">
+    </form>
+</div>
+
+</body>
+</html>

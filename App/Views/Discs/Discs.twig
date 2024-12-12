@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+    <title>Discs</title>
+</head>
+
+<body>
+
+<h1 class="largeHeader">All Discs</h1>
+
+<h2><a href="/">Home</a></h2>
+
+<div class="discs">
+    <h2><a href="/addisc">Add a new disc</a> <br><br></h2>
+    <div class="hej">
+        <form action="/discs" method="get">
+            <div class="box">
+                <h3>Specify witch type of disc</h3>
+                {% for type in types %}
+                    <input type="radio" name="discType" value="{{ type.TypeId }}">
+                    <label for="discType"> {{ type.DiscTypes }} </label><br>
+                {% endfor %}
+            </div>
+            <div class="box">
+                <h3>Specify wiht manufacturer</h3>
+                {% for manufacturer in manufacturers %}
+                    <input type="radio" name="manufacturer" value="{{ manufacturer.ManufacturerId }}">
+                    <label for="manufacturer">{{ manufacturer.ManufacturerName }}</label><br>
+                {% endfor %}
+            </div>
+            <div class="box">
+                <h3>Specify what type of plastic</h3>
+                {% for plastic in plastics %}
+                    <input type="radio" name="plastic" value="{{ plastic.PlasticId }}">
+                    <label for="plastic">{{ plastic.PlasticName }}</label><br>
+                {% endfor %}
+            </div>
+
+            <h3>Sort by price</h3>
+            <input type="radio" name="sortorderhigher" value="highestprice">
+            <label for="highestprice">Highest price</label><br>
+
+            <input type="radio" name="sortorderlower" value="lowestprice">
+            <label for="lowestprice">Lowest price</label><br><br><br>
+
+            <input type="submit" value="hrteetrjyrtjytryj">
+        </form>
+    </div>
+
+    {% for disc in discs %}
+
+        <a href="/discs/{{ disc.DiscName }}" style="color: aqua; text-decoration: none;"><h2
+                    style="font-size: 40px">{{ disc.DiscName }}</h2></a>
+
+        <ul>
+            <li> Speed: {{ disc.Speed }} </li>
+            <li> Glide: {{ disc.Glide }} </li>
+            <li> Turn: {{ disc.Turn }} </li>
+            <li> Fade: {{ disc.Fade }} </li>
+        </ul>
+
+        <p>Type: {{ disc.DiscTypes }}</p>
+        <p>Plastic type: {{ disc.PlasticName }}</p>
+        <p>Manufacturer: {{ disc.ManufacturerName }} </p>
+        <P>Price: {{ disc.Price }} kr</P>
+        <p>
+            {% if not disc.BeginnerFriendly %}
+                This disc is not beginner friendly
+            {% endif %}
+
+            {% if disc.BeginnerFriendly %}
+                This disc is beginner friendly
+            {% endif %}
+        </p>
+
+        <img height="200px" src="{{ disc.ImageLink }}" alt="Bild på {{ disc.DiscName }}"> <br><br>
+
+        <hr>
+        <br><br>
+    {% endfor %}
+</div>
+
+
+</body>
+</html>

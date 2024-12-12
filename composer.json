@@ -1,0 +1,20 @@
+{
+    "name": "wilsel331/kursprojekt-wilsel331",
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "wilsel331",
+            "email": "wilsel331@edu.linkoping.se"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*",
+        "vlucas/phpdotenv": "^5.4",
+        "twig/twig": "^3.3",
+        "pecee/simple-router": "4.3.7.2"
+    }
+}

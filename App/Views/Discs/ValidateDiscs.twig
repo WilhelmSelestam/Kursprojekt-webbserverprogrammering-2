@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+    <title>Approve Discs</title>
+</head>
+
+<body>
+
+<h1 class="largeHeader">Validate Discs</h1>
+
+<h2><a href="/">Home</a></h2>
+<div class="discs">
+
+    {% for disc in discs %}
+
+        <a href="/discs/{{ disc.DiscName }}" style="color: aqua; text-decoration: none;">
+            <h2 style="font-size: 40px">{{ disc.DiscName }}</h2></a>
+
+        <ul>
+            <li> Speed: {{ disc.Speed }} </li>
+            <li> Glide: {{ disc.Glide }} </li>
+            <li> Turn: {{ disc.Turn }} </li>
+            <li> Fade: {{ disc.Fade }} </li>
+        </ul>
+
+        <p>Type: {{ disc.DiscTypes }}</p>
+        <p>Plastic type: {{ disc.PlasticName }}</p>
+        <p>Manufacturer: {{ disc.ManufacturerName }} </p>
+        <P>Price: {{ disc.Price }} kr</P>
+        <p>
+            {% if not disc.BeginnerFriendly %}
+                This disc is not beginner friendly
+            {% endif %}
+
+            {% if disc.BeginnerFriendly %}
+                This disc is beginner friendly
+            {% endif %}
+        </p>
+
+        <img height="200px" src="{{ disc.ImageLink }}" alt="Bild på {{ disc.DiscName }}"> <br><br>
+
+        <form action="/storevalidateddiscs" method="post">
+            <input type="hidden" name="discId" value="{{ disc.DiscId }}">
+            <input type="submit" value="Approve Disc">
+        </form><br>
+        <form action="/deletedisc" method="post">
+            <input type="hidden" name="discId" value="{{ disc.DiscId }}">
+            <input type="submit" value="Delete Disc">
+        </form>
+
+        <hr>
+        <br><br>
+    {% endfor %}
+</div>
+
+
+</body>
+</html>

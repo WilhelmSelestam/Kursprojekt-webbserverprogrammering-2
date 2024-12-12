@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create User</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+</head>
+<body>
+<h1>Add a new user</h1>
+<div class="form">
+
+    <form action="/storeuser" method="post">
+        <input type="text" name="username" placeholder="username"><br><br>
+        <input type="password" name="password" placeholder="password"><br><br><br>
+
+        <label for="colorMode">Change colormode</label>
+        <select name="colorMode">
+            <option value="1">Whitemode</option>
+            <option value="2">Darkmode</option>
+            <option value="3">Redmode</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Create User">
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ disc.DiscName }}</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+</head>
+
+<body>
+
+<h1 class="largeHeader">{{ disc.DiscName }}</h1>
+
+<div class="discs">
+
+    <h2><a href="/discs">Back</a></h2>
+
+    <p style="margin-right: 50%"><strong>Disc description:</strong> <br> {{ disc.DiscDescription }}</p>
+
+        <ul>
+            <li> <strong>Speed: </strong>{{ disc.Speed }} </li>
+            <li> <strong>Glide:</strong> {{ disc.Glide }} </li>
+            <li><strong>Turn:</strong>  {{ disc.Turn }} </li>
+            <li><strong> Fade:</strong> {{ disc.Fade }} </li>
+        </ul>
+        <p><strong>Type:</strong> <br> {{ disc.DiscTypes }}</p>
+        <p><strong>Plastic type:</strong> <br> {{ disc.PlasticName }}</p>
+        <p><strong>Manufacturer:</strong><br>{{ disc.ManufacturerName }} </p>
+        <P><strong>Price:</strong> <br>{{ disc.Price }} kr</P>
+        <p>
+            {% if not disc.BeginnerFriendly %}
+                This disc is not beginner friendly
+            {% endif %}
+
+            {% if disc.BeginnerFriendly %}
+                This disc is beginner friendly
+            {% endif %}
+        </p>
+
+    <img height="200px" src="{{ disc.ImageLink }}" alt="Bild på {{ disc.DiscName }}"> <br><br>
+        <br><br>
+        <button>
+            <a href="/editdisc/{{ disc.DiscName }}" class="a-button"> Edit {{ disc.DiscName }}</a>
+        </button>
+
+        <form action="/deletedisc" method="post">
+            <input type="hidden" name="discId" value="{{ disc.DiscId }}"><br>
+            <input type="submit" value="Delete {{ disc.DiscName }}">
+        </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Discs</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="{{ ColorMode }}">
+</head>
+<body>
+
+<h1>Add a new disc</h1>
+{% for error in errors %}
+    {{ error }}<br><br>
+{% endfor %}
+
+<div class="form">
+    <form action="/store" method="post" enctype="multipart/form-data">
+
+        <label for="discName">Discname</label><br>
+        <input type="text" name="discName" value="{{ fields.discName }}" placeholder="Discname"><br><br>
+
+        <label for="discDescription">Discdescription</label><br>
+        <input type="text" name="discDescription" value="{{ fields.discDescription }}" placeholder="Discdescription"><br><br>
+
+        <label for="speed">Speed</label><br>
+        <input type="text" name="speed" value="{{fields.speed}}" placeholder="Speed"><br><br>
+
+        <label for="glide">Glide</label><br>
+        <input type="text" name="glide" value="{{ fields.glide }}" placeholder="Glide"><br><br>
+
+        <label for="turn">Turn</label><br>
+        <input type="text" name="turn" value="{{ fields.turn }}" placeholder="Turn"><br><br>
+
+        <label for="fade">Fade</label><br>
+        <input type="text" name="fade" value="{{ fields.fade }}" placeholder="Fade"><br><br>
+
+        <label for="price">Price</label><br>
+        <input type="text" name="price" value="{{ fields.price }}" placeholder="Price"><br><br>
+
+        <select name="discType">
+            {% for type in types %}
+                <option value="{{ type.TypeId }}">{{ type.DiscTypes }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="manufacturer">
+            {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.ManufacturerId }}">{{ manufacturer.ManufacturerName }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="plastic">
+            {% for plastic in plastics %}
+                <option value="{{ plastic.PlasticId }}">{{ plastic.PlasticName }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <select name="beginnerfriendly">
+            <option value="true">the disc is beginnerfriendly</option>
+            <option value="false">the disc is not beginnerfriendly</option>
+        </select>
+        <br><br>
+
+        <label for="img">Select image:</label>
+        <input type="file" name="img"><br><br>
+        {{ ERROR }}
+        <br><br>
+        <input type="submit" value="Add disc">
+
+    </form>
+</div>
+
+</body>
+</html>
